@@ -1,16 +1,18 @@
+---
+
 - hosts: all
-user: fabio
-sudo: yes
+  user: root
+  sudo: yes
 
-tasks:
-- name: install irssi
-action: apt pkg=irssi state=present
-notify:
-- start irssi
+  tasks:
+	- name: install irssi
+	  action: apt pkg=irssi state=present
+	  notify:
+	  - start irssi
 
-- name: Make sure irssi config is present
-action: copy src=config dest=~/.irssi/config
+	- name: Make sure irssi config is present
+	  action: copy src=config dest=~/.irssi/config
 
-handlers:
-- name: start irssi
-action: service name=irssi state=started
+  handlers:
+	- name: start irssi
+	  action: service name=irssi state=started

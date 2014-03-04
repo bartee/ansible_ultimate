@@ -1,19 +1,42 @@
+---
+
 - hosts: all
-user: fabio
-sudo: yes
+  user: root
+  sudo: yes
 
-# Install ntp
-- name: install ntp
-action: apt pkg=ntp state=present
+  tasks:
+    # Install ntp
+    - name: install ntp
+      action: apt pkg=ntp state=present
 
-# Install ntpdate
-- name: install ntpdate
-action: apt pkg=ntpdate state=present
+    # Install ntpdate
+    - name: install ntpdate
+      action: apt pkg=ntpdate state=present
 
-# Install screen
-- name: install screen
-action: apt pkg=screen state=present
+    # Install screen
+    - name: install screen
+      action: apt pkg=screen state=present
 
-# Install screen
-- name: install git
-action: apt pkg=git state=present
+    # Install htop
+    - name: install htop
+      action: apt pkg=htop state=present
+
+    # Install git
+    - name: install git
+      action: apt pkg=git state=present
+
+    # Install mercurial
+    - name: install mercurial
+      action: apt pkg=mercurial state=present
+
+    # Install python-setuptools
+    - name: install python-setuptools
+      action: apt pkg=python-setuptools state=present
+
+    # Install build-essential
+    - name: install build-essential
+      action: apt pkg=build-essential state=present
+
+    # Install python-software-properties
+    - name: install python-software-properties
+      action: apt pkg=python-software-properties state=present
