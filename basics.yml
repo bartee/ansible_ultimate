@@ -5,6 +5,32 @@
   sudo: yes
 
   tasks:
+    # Get Ubuntu release codename
+    - name: get ubuntu release codename
+      command: lsb_release --codename | cut -f2
+      register: ubuntu_codename
+
+    # Open selective firewall ports
+    - name: open firewall ports
+      command: ufw allow proto tcp from any to any port 22,43,123,443,465
+
+    # Enable ufw firewall
+    - name: enable ufw firewall
+      command: ufw enable
+
+    # Make sure locales are installed and up to date
+    - name: install proper locales
+      command: locale-gen nl_NL nl_NL.UTF-8
+
+    - name: update locales
+      command: dpkg-reconfigure locales
+
+
+- hosts: all
+  user: root
+  sudo: yes
+
+  tasks:
     # Install ntp
     - name: install ntp
       action: apt pkg=ntp state=present
