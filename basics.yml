@@ -1,0 +1,19 @@
+- hosts: all
+user: fabio
+sudo: yes
+
+# Install ntp
+- name: install ntp
+action: apt pkg=ntp state=present
+
+# Install ntpdate
+- name: install ntpdate
+action: apt pkg=ntpdate state=present
+
+# Install screen
+- name: install screen
+action: apt pkg=screen state=present
+
+# Install screen
+- name: install git
+action: apt pkg=git state=present
