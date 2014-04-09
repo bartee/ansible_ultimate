@@ -7,7 +7,7 @@
   tasks:
     # Get Ubuntu release codename
     - name: get ubuntu release codename
-      command: lsb_release --codename | cut -f2
+      shell: lsb_release --codename | cut -f2
       register: ubuntu_codename
 
     # Open selective firewall ports
@@ -16,7 +16,7 @@
 
     # Enable ufw firewall
     - name: enable ufw firewall
-      command: ufw enable
+      command: ufw --force enable
 
     # Make sure locales are installed and up to date
     - name: install proper locales
