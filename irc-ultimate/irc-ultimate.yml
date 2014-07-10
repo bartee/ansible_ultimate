@@ -1,15 +1,20 @@
 ---
+##
+# Full IRC setup
+#
 
 - hosts: all
   user: root
   sudo: yes
 
   tasks:
+  	# Install Irssi
 	- name: install irssi
 	  action: apt pkg=irssi state=present
 	  notify:
 	  - start irssi
 
+	# Copy existing config
 	- name: Make sure irssi config is present
 	  action: copy src=config dest=~/.irssi/config
 

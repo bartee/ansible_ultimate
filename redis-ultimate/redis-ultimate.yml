@@ -1,0 +1,8 @@
+---
+##
+# Redis setup.
+#
+
+# Install Redis
+- name: Apache | Install Redis
+  action: apt pkg=redis state=installed

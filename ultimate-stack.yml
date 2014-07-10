@@ -1,0 +1,10 @@
+---
+- hosts: all
+  sudo: True
+
+  tasks:
+    # Set up environment
+    - include: basics.yml
+    - include: apache-ultimate/apache-ultimate.yml
+    - include: redis-ultimate/redis-ultimate.yml
+    - include: irc-ultimate/irc-ultimate.yml

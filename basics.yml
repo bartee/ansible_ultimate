@@ -1,4 +1,7 @@
 ---
+##
+# All the basics for normal everyday use
+#
 
 - hosts: all
   user: root
